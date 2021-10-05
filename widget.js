@@ -77,20 +77,20 @@ async function createWidget(data) {
             day1Stack.addSpacer(4);
             createBigRepElement(day1Stack, data[0][0], 0);
           } else {
-            createDayElement(daysRow, [data[0][0]]);
+            createDayElement(daysRow, [data[0][0]]), 0;
             daysRow.addSpacer(16);
           }
         } else {
           if (data.length === 1) {
             createBigDayElement(daysRow, [data[0][0], data[0][1]])
           } else
-            createDayElement(daysRow, [data[0][0], data[0][1]]);
+            createDayElement(daysRow, [data[0][0], data[0][1]], data[0].length);
           daysRow.addSpacer(16);
         }
         // Second Date
         if (data.length > 1) {
           if (data[1].length === 1) {
-            createDayElement(daysRow, [data[1][0]]);
+            createDayElement(daysRow, [data[1][0]], data[1].length);
           } else {
             createDayElement(daysRow, data[1], data[1].length);
           }
@@ -100,7 +100,7 @@ async function createWidget(data) {
         if (data[0].length === 1) {
           createTwoDaysElement(widget, [data[0][0], data[1][0]]);
         } else {
-          createDayElement(widget, [data[0][0], data[0][1]]);
+          createDayElement(widget, [data[0][0], data[0][1]], data[0].length);
         }
       }
       widget.addSpacer();
